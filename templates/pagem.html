@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Server temp</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="form.css" >
+  <!--<script src="form.js"></script>-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="static/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="header">
+		<h2> Temperature & Alerts </h2>
+		<p>Enter the acceptable range of temperature and choose among the options to stay notified about any alerts. 
+    </p>
+	</div>
+
+	<div class="row">
+		<div class="column">
+			<div class="card">
+				<h3>Enter acceptable range of temperature</h3>
+				<button type="button" class="btn btn-info btn-lg turned-button" data-toggle="modal" data-target="#addRange">Set Range</button>
+			</div>
+		</div>
+		<div class="column">
+			<div class="card">
+				<h3>Choose a notification option</h3>
+				<a href="#sms" data-target="#sms" data-toggle="modal"><i class="fa fa-comments"></i></a>
+				<p></p>
+				<a href="#mail" data-target="#mail" data-toggle="modal"><i class="fa fa-envelope"></i></a>
+				<p></p>
+				<a href="#whatsapp" data-target="#whatsapp" data-toggle="modal"><i class="fa fa-whatsapp"></i></a>
+				<p></p>
+
+			</div>
+		</div>
+	</div>
+
+	<div id="mail" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Enter Gmail-ID</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form" method="post" id="reused_form" >
+                        <p> Enter the Gmail-ID to which notifications will be sent. </p>
+                        <div class="form-group">
+                            <label for="notif2"> Email-ID:</label>
+                            <input type="email" class="form-control" id="email" name="email" required maxlength="50">
+                        </div>
+
+                        <button type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs" name="sub"value = "msub">DONE &rarr;</button>
+
+                    </form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+  <div id="whatsapp" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Enter Number</h4>
+        </div>
+        <div class="modal-body">
+          <img src='static/frame.png' alt='QR Code' style="vertical-align:middle">
+          <form role="form" method="post" id="reused_form" >
+                        <p> Scan the QR code and send the message to the recognised Twilio number. </p>
+                        <div class="form-group">
+                            <label for="notif1"> Number:</label>
+                            <input type="text" class="form-control" id="wnum" name="wnum" required maxlength="12">
+                        </div>
+
+                        <button type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs" name="sub" value="wsub">DONE &rarr;</button>
+
+                    </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sms" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Enter Number</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" method="post" id="reused_form" >
+                        <p> Enter the number to which notifications will be sent. </p>
+                        <div class="form-group">
+                            <label for="notif1"> Number:</label>
+                            <input type="text" class="form-control" id="sms" name="sms" required maxlength="12">
+                        </div>
+
+                        <button type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs" name="sub" value="ssub">DONE &rarr;</button>
+
+                    </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+	<div id="addRange" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">
+                                Set Range
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form" method="post" id="reused_form" >
+                                <p> Enter the minimum and maximum acceptable temperature. Any deviation from this will notified via the selected medium </p>
+                                <div class="form-group">
+                                    <label for="room"> Room Number:</label>
+                                    <input type="number" class="form-control" id="room" name="room" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="min"> Minimum:</label>
+                                    <input type="number" class="form-control" min="0" id="min" name="min" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="min"> Maximum:</label>
+                                    <input type="number" class="form-control" max="99" id="max" name="max" required>
+                                </div>
+
+                                <button type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs" name="sub" value="rsub">DONE &rarr;</button>
+                            </form>
+
+                            <!--<div id="success_message" style="width:100%; height:100%; display:none; "> 
+                            	<h3>Sent your message successfully!</h3> 
+                            </div>-->
+                            <!--<div id="error_message" style="width:100%; height:100%; display:none; "> 
+                            	<h3>Error</h3> Sorry there was an error sending your form. 
+                            </div>-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+	<div class="footer">
+		<p>CDS @ IISC, Bangalore.
+	</div>
+
+</body>
+</html>

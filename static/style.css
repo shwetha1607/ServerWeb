@@ -1,0 +1,71 @@
+.header {
+  background-color: #F1F1F1;
+  text-align: center;
+  padding: 20px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: gray;
+  color: white;
+  text-align: right;
+  margin-top: 20px;
+
+}
+
+@media screen and (max-width: 800px) {
+  .column {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 80px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-envelope {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-comments {
+  background: #00aff0;
+  color: white;
+}
+
+.fa-whatsapp {
+  background: #F1F1F1;
+  color: black;
+}
